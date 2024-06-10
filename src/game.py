@@ -38,7 +38,7 @@ SPEED = 20
 
 class SnakeGameAI:
 
-    def __init__ (self, w=640, h=480):
+    def __init__(self, w=640, h=480):
         # Init sizes
         self.w = w
         self.h = h
@@ -59,7 +59,7 @@ class SnakeGameAI:
         # init game state
         self.reset()
 
-    def reset (self):
+    def reset(self):
         self.direction = Direction.RIGHT
 
         self.head = Point(self.w / 2, self.h / 2)
@@ -72,14 +72,14 @@ class SnakeGameAI:
         self._place_food()
         self.frame_iteration = 0
 
-    def _place_food (self):
+    def _place_food(self):
         x = random.randint(0, (self.w - BLOCK_SIZE) // BLOCK_SIZE) * BLOCK_SIZE
         y = random.randint(0, (self.h - BLOCK_SIZE) // BLOCK_SIZE) * BLOCK_SIZE
         self.food = Point(x, y)
         if self.food in self.snake:
             self._place_food()
 
-    def play_step (self, action):
+    def play_step(self, action):
         self.frame_iteration += 1
 
         # 1. collect user input
@@ -114,7 +114,7 @@ class SnakeGameAI:
         # 6. return game over and score
         return reward, game_over, self.score
 
-    def is_collision (self, point=None):
+    def is_collision(self, point=None):
         if point is None:
             point = self.head
         # hits boundary
@@ -126,7 +126,7 @@ class SnakeGameAI:
 
         return False
 
-    def _update_ui (self):
+    def _update_ui(self):
         self.display.fill(BLACK)
 
         for pt in self.snake:
@@ -139,7 +139,7 @@ class SnakeGameAI:
         self.display.blit(text, [0, 0])
         pygame.display.flip()
 
-    def _move (self, action):
+    def _move(self, action):
         # Action -> [Straight, right, left]
         clock_wise = [Direction.RIGHT, Direction.DOWN, Direction.LEFT, Direction.UP]
         index = clock_wise.index(self.direction)

@@ -1,2 +1,6 @@
 .idea
 .DS_store
+
+models/
+plots/
+data/

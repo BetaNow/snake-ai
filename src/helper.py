@@ -35,7 +35,7 @@ def plot(scores, mean_scores, model_number="00"):
     plt.pause(.1)
 
     # Save the plot
-    plot_path = Path("../plots")
+    plot_path = Path("../assets/plots")
     plot_path.mkdir(parents=True, exist_ok=True)
 
     # Save the plot by replacing the last plot

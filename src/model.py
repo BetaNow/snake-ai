@@ -48,7 +48,7 @@ class LinearQNet(nn.Module):
         """
 
         # 1. Create models directory
-        model_path = Path("../models")
+        model_path = Path("../assets/models")
         model_path.mkdir(parents=True, exist_ok=True)
 
         # 2. Create a model save path
@@ -135,7 +135,7 @@ def load_if_exist(model_number) -> 'LinearQNet':
     """
 
     # 1. Create models directory
-    model_path = Path("../models")
+    model_path = Path("../assets/models")
     model_path.mkdir(parents=True, exist_ok=True)
 
     # 2. Create a model save path
